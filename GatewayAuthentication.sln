@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceA", "ServiceA\ServiceA.csproj", "{50AE6280-0436-49FB-AA6B-76E24C2E7EA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceA", "ServiceA\ServiceA.csproj", "{50AE6280-0436-49FB-AA6B-76E24C2E7EA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceB", "ServiceB\ServiceB.csproj", "{E4F5DFFD-3956-46DA-A98A-3EDEE4619EE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceB", "ServiceB\ServiceB.csproj", "{E4F5DFFD-3956-46DA-A98A-3EDEE4619EE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{511486A3-DE25-4DFD-9462-95FBC73E9DD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{511486A3-DE25-4DFD-9462-95FBC73E9DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{0F04F259-B1F9-4C67-8462-C0B3E9EFBA8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{0F04F259-B1F9-4C67-8462-C0B3E9EFBA8B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0C281000-C0CC-4868-8595-1D98871B9B4E}"
 EndProject
