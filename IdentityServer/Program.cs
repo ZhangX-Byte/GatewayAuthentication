@@ -20,6 +20,7 @@ namespace IdentityServer
                 services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
                 services.AddIdentityServer()
+                    .AddDeveloperSigningCredential()
                     .AddInMemoryIdentityResources(Config.GetIdentityResources())
                     .AddInMemoryApiResources(Config.GetApiResources())
                     .AddInMemoryClients(Config.GetClients())
