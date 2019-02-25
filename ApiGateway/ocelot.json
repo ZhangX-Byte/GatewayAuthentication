@@ -1,0 +1,40 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/ServiceA/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "ServiceName": "ServiceA",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/ServiceB/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "ServiceName": "ServiceB",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://localhost:9092",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}

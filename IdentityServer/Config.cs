@@ -10,6 +10,7 @@ namespace IdentityServer
         {
             return new List<ApiResource>
             {
+                new ApiResource("Services", "Services API"),
                 new ApiResource("ServiceA", "ServiceA API"),
                 new ApiResource("ServiceB", "ServiceB API")
             };
@@ -19,6 +20,17 @@ namespace IdentityServer
         {
             return new List<Client>
             {
+                new Client
+                {
+                    ClientId = "ServicesClient",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    ClientSecrets =
+                    {
+                        new Secret("ServicesClient".Sha256())
+                    },
+                    AllowedScopes = new List<string> {"ServiceA","ServiceB"},
+                    AccessTokenLifetime = 60 * 60 * 1
+                },
                 new Client
                 {
                     ClientId = "ServiceAClient",
