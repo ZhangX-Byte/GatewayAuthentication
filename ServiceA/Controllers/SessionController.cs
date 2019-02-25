@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceA.Controllers
@@ -23,15 +19,16 @@ namespace ServiceA.Controllers
             {
                 return "认证服务器未启动";
             }
-            TokenResponse tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            TokenResponse tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "ServiceAClient",
-                ClientSecret = "ServiceAClient"
+                ClientSecret = "ServiceAClient",
+                UserName = userRequestModel.Name,
+                Password = userRequestModel.Password
             });
 
             return tokenResponse.IsError ? tokenResponse.Error : tokenResponse.AccessToken;
-
         }
     }
 

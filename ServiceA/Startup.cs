@@ -25,7 +25,7 @@ namespace ServiceA
                 {
                     options.Authority = "http://localhost:38033";
                     options.RequireHttpsMetadata = false;
-                    options.Audience = "ServiceAClient";
+                    options.Audience = "ServiceA";
                 });
         }
 
