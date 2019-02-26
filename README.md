@@ -15,6 +15,7 @@
 #### 构建 IdentityServer 服务
 1. 添加 ASP.Net Core Web 项目
     <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate1.png" height="400px" />
+    
 2. 添加空项目
     <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate2.png" height="400px" />
 
