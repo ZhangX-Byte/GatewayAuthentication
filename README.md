@@ -18,11 +18,11 @@
 2. 添加空项目
   <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate2.png" height="400px" />
 3. 在程序包管理控制台中输入
-   ```
+   ``` csharp
    Install-Package IdentityServer4.AspNetIdentity
    ```
 4. 添加 Config.cs 文件，并添加内容如下：
-   ``` csharp
+   ```csharp
     using System.Collections.Generic;
     using IdentityServer4.Models;
     using IdentityServer4.Test;
