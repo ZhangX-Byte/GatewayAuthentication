@@ -14,7 +14,7 @@ namespace ServiceB.Controllers
         {
             // discover endpoints from metadata
             var client = new HttpClient();
-            DiscoveryResponse disco = await client.GetDiscoveryDocumentAsync("http://localhost:38033");
+            DiscoveryResponse disco = await client.GetDiscoveryDocumentAsync("http://127.0.0.1:8021");
             if (disco.IsError)
             {
                 return "认证服务器未启动";

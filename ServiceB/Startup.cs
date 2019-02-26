@@ -23,7 +23,7 @@ namespace ServiceB
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://localhost:38033";
+                    options.Authority = "http://127.0.0.1:8021";
                     options.RequireHttpsMetadata = false;
                     options.Audience = "ServiceB";
                 });
