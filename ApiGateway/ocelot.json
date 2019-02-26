@@ -22,7 +22,6 @@
     }
   ],
   "GlobalConfiguration": {
-    //"BaseUrl": "http://localhost:9092",
     "ServiceDiscoveryProvider": {
       "Host": "localhost",
       "Port": 8500,
