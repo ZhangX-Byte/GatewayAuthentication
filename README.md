@@ -22,7 +22,7 @@
    Install-Package IdentityServer4.AspNetIdentity
    ```
 4. 添加 Config.cs 文件，并添加内容如下：
-    ``` csharp
+   ``` csharp
     using System.Collections.Generic;
     using IdentityServer4.Models;
     using IdentityServer4.Test;
