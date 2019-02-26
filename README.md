@@ -17,9 +17,13 @@
    <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate1.png" height="400px" />
 2. 添加空项目
   <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate2.png" height="400px" />
-3. 在程序包管理控制台中输入：Install-Package IdentityServer4.AspNetIdentity
+3. 在程序包管理控制台中输入
+   ```
+   Install-Package IdentityServer4.AspNetIdentity
+   ```
+   
 4. 添加 Config.cs 文件，并添加内容如下：
-    ``` csharp
+   ``` csharp
     using System.Collections.Generic;
     using IdentityServer4.Models;
     using IdentityServer4.Test;
@@ -85,11 +89,11 @@
             }
         }
     }
-    ```
+   ```
     **注意**：这里添加了两个 Client ，分别为 ServiceA、ServiceB ，因此接下来将构建这两个服务。
 
 5. 删掉StartUp.cs文件，在Program.cs中添加内容如下：
-    ``` csharp
+   ``` csharp
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -124,9 +128,10 @@
             }
         }
     }
-    ```
+   ```
 
     **注意**：AddDeveloperSigningCredential() 方法用于添加开发时使用的 [Key material](http://docs.identityserver.io/en/latest/topics/startup.html#key-material) ，生产环境中不要使用该方法。在 .NET Core 2.2 中新建的 Web 项目文件 csproj 中包含了如下内容：
+
     ```csharp
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -143,7 +148,7 @@
     ```
 
 
-6. F5 启动该服务，显示如下：
+5. F5 启动该服务，显示如下：
    <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServer404.png"  height="400px" />
 
    在浏览器中输入 http://localhost:38033/.well-known/openid-configuration ，得到以下内容
@@ -159,8 +164,13 @@
 2. 添加 ASP.Net Core API 
    <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/CreateServiceAWebApi.png" height="400px" />
 
-3. 在 StartUp.cs 中添加内容如下：
-    ```csharp
+3. 在程序包管理控制台中运行
+   ```
+   Install-Package IdentityModel
+   ```
+
+4. 在 StartUp.cs 中添加内容如下：
+   ```csharp
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
@@ -204,11 +214,10 @@
             }
         }
     }
+   ```
 
-    ```
-
-4. 添加 SessionController 用于用户登录，内容如下：
-    ``` csharp
+5. 添加 SessionController 用于用户登录，内容如下：
+   ``` csharp
     using System.ComponentModel.DataAnnotations;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -252,10 +261,10 @@
             public string Password { get; set; }
         }
     }
-    ```
+   ```
 
-5. 添加 HealthController 用于 Consul 进行服务健康检查，内容如下：
-    ```csharp
+6. 添加 HealthController 用于 Consul 进行服务健康检查，内容如下：
+   ```csharp
     using Microsoft.AspNetCore.Mvc;
 
     namespace ServiceA.Controllers
@@ -274,10 +283,10 @@
             }
         }
     }
-    ```
+   ```
 
-6. 更改 ValuesController.cs 内容如下：
-    ``` csharp
+7. 更改 ValuesController.cs 内容如下：
+   ``` csharp
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
@@ -297,7 +306,7 @@
             }
         }
     }
-    ```
+   ```
 
 **注意**，以上基本完成了 ServiceA 的服务构建，但在实际应用中应做一些修改，例如：IdentityServer 地址应在 appsettings.json 中进行配置，不应把地址分散于项目中各处；认证服务启用最好在全局启用，以防止漏写等等。ServiceB 的内容与 ServiceA 大致相似，因此文章中将不再展示 ServiceB 的构建过程。
 
@@ -317,7 +326,7 @@
     install-package Ocelot.Provider.Consul // 添加 Consul 服务发现
     ```
 4. 添加 ocelot.json 文件，内容如下
-    ``` json
+   ``` json
     {
     "ReRoutes": [
         {
@@ -349,10 +358,10 @@
         }
     }
     }
-    ```
+   ```
 
 5. 删除 StartUp.cs 文件，在 Program.cs 文件中添加如下内容
-    ``` csharp
+   ``` csharp
     using System.IO;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -396,7 +405,7 @@
             }
         }
     }
-    ```
+   ```
 
 **注意**：打开 Gateway.csproj 文件，更改
 ```csharp
@@ -477,7 +486,3 @@
 
 #### 总结
 至此，一个由 .NET Core、IdentityServer4、Ocelot、Consul实现的基础架构搭建完毕。[源码地址](https://github.com/SoMeDay-Zhang/GatewayAuthentication)
-
-
-
-
