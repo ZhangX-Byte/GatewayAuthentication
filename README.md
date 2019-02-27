@@ -17,9 +17,13 @@
    <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate1.png" height="400px" />
 2. 添加空项目
   <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/IdentityServerCreate2.png" height="400px" />
-3. 在程序包管理控制台中输入：Install-Package IdentityServer4.AspNetIdentity
+3. 在程序包管理控制台中输入
+   ```
+   Install-Package IdentityServer4.AspNetIdentity
+   ```
+
 4. 添加 Config.cs 文件，并添加内容如下：
-    ``` csharp
+   ```csharp
     using System.Collections.Generic;
     using IdentityServer4.Models;
     using IdentityServer4.Test;
@@ -159,7 +163,11 @@
 2. 添加 ASP.Net Core API 
    <img src="https://raw.githubusercontent.com/SoMeDay-Zhang/GatewayAuthentication/master/Documents/Images/CreateServiceAWebApi.png" height="400px" />
 
-3. 在 StartUp.cs 中添加内容如下：
+3. 在程序包管理控制台中运行
+   ```
+   Install-Package IdentityModel
+   ```
+4. 在 StartUp.cs 中添加内容如下：
     ```csharp
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -207,7 +215,7 @@
 
     ```
 
-4. 添加 SessionController 用于用户登录，内容如下：
+5. 添加 SessionController 用于用户登录，内容如下：
     ``` csharp
     using System.ComponentModel.DataAnnotations;
     using System.Net.Http;
@@ -254,7 +262,7 @@
     }
     ```
 
-5. 添加 HealthController 用于 Consul 进行服务健康检查，内容如下：
+6. 添加 HealthController 用于 Consul 进行服务健康检查，内容如下：
     ```csharp
     using Microsoft.AspNetCore.Mvc;
 
@@ -276,7 +284,7 @@
     }
     ```
 
-6. 更改 ValuesController.cs 内容如下：
+7. 更改 ValuesController.cs 内容如下：
     ``` csharp
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Authorization;
@@ -477,7 +485,3 @@
 
 #### 总结
 至此，一个由 .NET Core、IdentityServer4、Ocelot、Consul实现的基础架构搭建完毕。[源码地址](https://github.com/SoMeDay-Zhang/GatewayAuthentication)
-
-
-
-
